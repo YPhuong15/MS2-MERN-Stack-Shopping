@@ -15,6 +15,7 @@ const productRoute = require('./controllers/productControllers')
 
 // CONNECTING TO DATABASE
 const MONGO_URI = process.env.MONGO_URI;
+console.log(MONGO_URI)
 
 mongoose.connect(
   MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true,}
