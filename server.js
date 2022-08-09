@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // IMPORTING ROUTES
-const productRoute = require('./routes/product')
+const productRoute = require('./controllers/productControllers')
 
 // CONNECTING TO DATABASE
 const MONGO_URI = process.env.MONGO_URI;
@@ -30,7 +30,7 @@ connectionDB.on(`error`, () => {
 })
 
 // ROUTES
-app.use('api/products/', productRoute)
+app.use('/api/products/', productRoute)
 
 app.get('/', (req, res) => res.send('Hello World'))
 app.listen(PORT, () => console.log(`App running on ${PORT}`)) 
