@@ -1,38 +1,29 @@
 const express = require('express')
-const mongoose = require('mongoose')
 
 // CONFIGURATION
-require('dotenv').config();
+const cors = require("cors");
+require("dotenv").config({ path: "./config.env" });
 const app = express();
 const PORT = process.env.PORT || 4001;
 
 //MIDDLEWARES
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cors());
 
-// IMPORTING ROUTES
-const productRoute = require('./controllers/productControllers')
-
-// CONNECTING TO DATABASE
-const MONGO_URI = process.env.MONGO_URI;
-console.log(MONGO_URI)
-
-mongoose.connect(
-  MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true,}
-);
+//ROUTES
+app.use(require('./routes/productRoute'))
 
 // GET DB CONNECTION STATUS
-let connectionDB = mongoose.connection
-connectionDB.on(`connected`, () => {
-    console.log('Success')
-})
-connectionDB.on(`error`, () => {
-    console.log('Fail')
-})
 
-// ROUTES
-app.use('/api/products/', productRoute)
+const dbo = require("./db/conn");
 
-app.get('/', (req, res) => res.send('Hello World'))
-app.listen(PORT, () => console.log(`App running on ${PORT}`)) 
+app.listen(PORT, () => {
+  // perform a database connection when server starts
+  dbo.connectToServer(function (err) {
+    if (err) console.error(err);
+ 
+  });
+  console.log(`Server is running on port: ${PORT}`);
+});
 

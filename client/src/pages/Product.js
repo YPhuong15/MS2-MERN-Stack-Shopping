@@ -1,43 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import NavBar from '../components/NavBar'
-import ProductListing from '../components/productListing'
-//import productListing from '../components/productListing'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+ 
+export default function ProductList() {
+ const [products, setProducts] = useState([]);
+ 
+ // Fetch from database
+ useEffect(() => {
+    async function getProducts() {
+      const response = await fetch(`http://localhost:3000/product/`);
+      const products = await response.json();
+      setProducts(products);
+    }
+    getProducts();
+    return;
+  }, [products.length]);
+  
+ 
+ // Display All Products
+ return (
+   <div className="container">
+     <h1>Products</h1>
+     <div className="row">
+      {products.map((product) => {
+        return(
+          <div className="col-sm-2" key = {product._id}>
+            <Link
+            to={{pathname: `/product/${product._id}` }}
+            state={{
+              id: product._id,
+              name: product.name,
+              price: product.price,
+              image1: product.image[0],
+              image2: product.image[1],
+              image3: product.image[2],
+            }}
+            >
+              <img src={product.image[0]} alt={product.name}/>
+              <p>{product.name}</p>
+              <p>P$ {product.price}</p>
 
-function Product() {
-    const [productsData, setProductsData] = useState([])
 
-    useEffect(() => {
-        const getProducts = async () => {
-            const response = await fetch('/api/products/getProducts')
-            const newData = await response.json();
-            setProductsData(newData);
-            console.log(newData)
-        }
-        getProducts();
-    }, [])
-    return (
-        <div>
-            <NavBar><div>Product</div></NavBar>
-            <Container>
-            <Row>
-                {productsData.map(() => {
-                    return <Col>
-                
-                    </Col>
-                })}
-
-            </Row>
-        </Container>
-        </div>
-
-
-
-
-
-    )
+            </Link>
+          </div>
+        )
+    })}
+     </div>
+   </div>
+ );
 }
-
-export default Product
