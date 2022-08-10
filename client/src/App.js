@@ -1,28 +1,31 @@
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ProductList from "./pages/ProductsPage";
 import Homepage from './pages/Homepage'
-import Product from './pages/Product'
-import ProductDetail from './pages/productDetail';
-import NavBar from './components/NavBar'
-import AboutUs from './pages/AboutUs';
-import Footer from './components/Footer'
-
+import ProductDetails from "./pages/DetailsPage"
+import AboutUs from "./pages/AboutUsPage";
+import ViewCart from "./pages/ViewCart";
+import AccessoriesPage from "./pages/AccessoriesPage";
+import AccessoryDetailsPage from "./pages/AccessoryDetailsPage";
+import './App.css'
+ 
 function App() {
-  return (
-    <div className="App">
-      <NavBar />
-      <BrowserRouter>
-      <Routes>
-        <Route path='/home' element={<Homepage/>} />
-        <Route path='/product' element={<Product/>} />
-        <Route path='/about' element={<AboutUs/>} />
-        <Route path='/product/:id' element={<ProductDetail/>} />
-      </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
-  );
-}
-
+ return (
+   <div className="main-page">
+     <BrowserRouter>
+     <Routes>
+       <Route exact path="/" element={<Homepage />} />
+       <Route exact path='/home' element={<Homepage/>} />
+       <Route exact path='/aboutus' element={<AboutUs/>} />
+       <Route exact path='/product' element={<ProductList/>} />
+       <Route exact path="/product/:id" element={<ProductDetails/>}/>
+       <Route exact path='/accessories' element={<AccessoriesPage/>} />
+       <Route exact path='/accessories/:id' element={<AccessoryDetailsPage/>} />    
+       <Route exact path='/cart' element={<ViewCart/>} />   
+     </Routes>
+     </BrowserRouter>
+   </div>
+ );
+};
+ 
 export default App;
-
-
