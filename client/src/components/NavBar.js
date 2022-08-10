@@ -11,10 +11,10 @@ import {BsCart3} from 'react-icons/bs'
 export default function Navigation() {
     return (
         <div>
-            <Navbar bg="light" expand="lg">
-                <Container fluid>
+            <Navbar bg="light" expand="lg" style={{height: '220px'}}>
+                <Container padding-bottom="50px">
                     <Navbar.Brand href="#home">
-                        <img alt="logo" src={Logo} style={{width: '50%'}}/>
+                        <img alt="logo" src={Logo} style={{width: '65%'}}/>
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
