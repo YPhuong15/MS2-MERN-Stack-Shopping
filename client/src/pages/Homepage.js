@@ -1,11 +1,18 @@
 import React from 'react'
 import NavBar from '../components/NavBar'
 
-function Homepage() {
 
+function Homepage() {
     return (
-        <NavBar><div>Homepage</div></NavBar>
+        <div>
+            {/* Navbar */}
+            <NavBar><div>Homepage</div></NavBar>
+             {/*list of products alsp show in hompage */}
+
+        </div>
         
+        
+
     
     )
 }
