@@ -7,6 +7,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Logo from '../resources/logopoke.png'
 import {BsCart3} from 'react-icons/bs'
 
+
 export default function Navigation() {
     return (
         <div>
@@ -18,10 +19,10 @@ export default function Navigation() {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll">
                         <Nav className="flex-grow-1 justify-content-evenly">
-                        <Nav.Link href="#Home">Home</Nav.Link>
+                        <Nav.Link href="/home">Home</Nav.Link>
                         <Nav.Link href="#AboutUs">About Us</Nav.Link>
                         <NavDropdown title="Products" id="navbarScrollingDropdown">
-                            <NavDropdown.Item href="#Product">Pokemon</NavDropdown.Item>
+                            <NavDropdown.Item href="/product">Pokemon</NavDropdown.Item>
                             <NavDropdown.Item href="#Accessories">Accessories</NavDropdown.Item>
                         </NavDropdown>
                         </Nav>
@@ -36,7 +37,7 @@ export default function Navigation() {
                         </Form>
                     </Navbar.Collapse>
                     <Nav className="flex-grow-1 justify-content-evenly">
-                        <Nav.Link href="#Cart">View Cart <BsCart3 /></Nav.Link>
+                        <Nav.Link href="/cart">View Cart <BsCart3 /></Nav.Link>
                     </Nav>
                 </Container>
             </Navbar>
