@@ -20,7 +20,7 @@ export default function Navigation() {
                     <Navbar.Collapse id="navbarScroll">
                         <Nav className="flex-grow-1 justify-content-evenly">
                         <Nav.Link href="/home">Home</Nav.Link>
-                        <Nav.Link href="#AboutUs">About Us</Nav.Link>
+                        <Nav.Link href="/about">About Us</Nav.Link>
                         <NavDropdown title="Products" id="navbarScrollingDropdown">
                             <NavDropdown.Item href="/product">Pokemon</NavDropdown.Item>
                             <NavDropdown.Item href="#Accessories">Accessories</NavDropdown.Item>

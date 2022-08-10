@@ -13,7 +13,7 @@ function AboutUs() {
                     <Col style={{padding: '100px 20px'}}>
                         <Image src={Logo} alt='pokemall' thumbnail />
                     </Col>
-                    <Col style={{padding: '130px 10px 75px 100px'}}>
+                    <Col style={{padding: '130px 10px 100px'}}>
                         <p>PokeMall starts</p>
                     </Col>
                 </Row>
