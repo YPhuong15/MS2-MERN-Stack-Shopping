@@ -28,6 +28,26 @@ routes.route("product/:id").get(function (req, res) {
     });
  });
 
- 
+ routes.route('/cart').get(function (req, res) {
+  let db_connect = dbo.getDb("pokemon");
+  db_connect
+  .collection("cart")
+  .find({})
+  .toArray(function (err, result) {
+      if (err) throw err;
+      res.json(result)
+  });
+});
+
+routes.route("cart/:id").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { id: ObjectId(req.params.id)};
+  db_connect
+  .collection("cart")
+  .findOne(myquery, function (err, result) {
+    if (err) throw err;
+    res.json(result);
+  });
+});
  
    module.exports = routes;

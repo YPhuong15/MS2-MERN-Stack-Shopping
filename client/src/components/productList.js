@@ -32,6 +32,8 @@ export default function ProductList() {
                id: product._id,
                name: product.name,
                price: product.price,
+               type1: product.category[0],
+               type2: product.category[1],
                image1: product.image[0],
                image2: product.image[1],
                image3: product.image[2],

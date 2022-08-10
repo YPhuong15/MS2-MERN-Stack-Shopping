@@ -1,6 +1,6 @@
 import React from 'react'
 import NavBar from '../components/navbar'
-
+import ShoppingCart from '../components/ShoppingCart';
 
 function ViewCart() {
     return (
@@ -8,7 +8,7 @@ function ViewCart() {
             {/* Navbar */}
             <NavBar/>
             <div>
-                About us stuff
+                <ShoppingCart/>
             </div>
              {/*list of products alsp show in hompage */}
 

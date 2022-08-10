@@ -9,8 +9,17 @@ const ProductDetails = () => {
       <div className="row">
         <div className="col">
           <h1>{location.state.name}</h1>
+          <hr style={{
+            background: '#FFFFFF',
+            color: '#FFFFFF',
+            opacity: '100%',
+            borderBottom: '2px solid black',
+            height: '6px',
+            margin: '-20px 0px 10px 0px'
+          }} />
+          <h2>{location.state.type1}  &emsp; {location.state.type2}</h2>
           <h3>P${location.state.price}</h3>
-          <button>BUY</button>
+          <button>Add to Cart</button>
 
         </div>
         <div className="col">
