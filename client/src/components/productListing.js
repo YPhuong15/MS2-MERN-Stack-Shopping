@@ -1,95 +1,42 @@
 import React from "react";
-import { Card, Container, Grid } from "@mui/material";
-import NavBar from "./NavBar";
-import { makeStyles } from "@mui/styles";
 import { Link } from "react-router-dom";
-
-const useStyle = makeStyles((theme) => ({
-  ListProductMainContainer: {
-    padding: "0 40px",
-    // [theme.breakpoints.down("sm")]: {
-    //   padding: 0
-    // }
-  },
-  ProductLink: {
-    color: "black",
-    textDecoration: "none",
-    cursor: "pointer",
-    fontSize: 16,
-    "&:hover": {
-      "& $ProductDetailColorway": {
-        opacity: 0.5,
-      },
-      "& $ProductColorway": {
-        display: "block",
-      },
-      "& $ProductImage": {
-        opacity: 0.5,
-      },
-    },
-  },
-  ProductColorway: {
-    display: "none",
-  },
-  ProductImage: {
-    width: "150px",
-    height: "150px",
-    // [theme.breakpoints.down("xs")]: {
-    //   height: "150px",
-    //   width: "100%",
-    // }
-  },
-  ProductDetailColorway: {
-    lineHeight: 1.75,
-    display: "block",
-  },
-  ProductType: {
-    color: "#757575",
-  },
-  ProductName: {
-    color: "#757575",
-  },
-}));
 
 function ProductListing(props) {
   const productList = props.productsData;
-  const classes = useStyle();
-  //console.log(productList); //can show the list of products
-
+  console.log(productList); //can show the list of products
   return (
-    <div>
-      <Container maxWidth="xl">
-        <h1>Products</h1>
-        <Grid
-          container
-          spacing={2}
-          className={classes.ListProductMainContainer}
-        >
-          {productList.map((item, index) => {
-            return (
-              <Grid item xs={6} md={4} key={index}>
-                <span className={classes.ProductLink}>
-                  <Link to={{ pathname: `/products/${item._id}` }}>
-                    <img
-                      className={classes.ProductImage}
-                      src={item.image[0]}
-                      //   onClick={Navigate()}
-                    />
-                  </Link>
-
-                  <div></div>
-                  <div className={classes.ProductDetailColorway}>
-                    <div className={classes.ProductName}>Name: {item.name}</div>
-                    <div className={classes.ProductType}>
-                      Price: {item.price.toLocaleString()}USD
-                    </div>
-                  </div>
-                </span>
-              </Grid>
-            );
-          })}
-        </Grid>
-      </Container>
+    <div className="container">
+      <h1>Available Pokemon</h1>
+      <div className="row poke-list">
+       {[...productList]
+        .sort((a, b) => a.pokedex - b.pokedex)
+        .map((product) => {
+         return(
+           <div className="col-sm-2 product-card" key = {product._id}>
+             <Link
+             to={{pathname: `/products/${product._id}` }}
+             state={{
+               id: product._id,
+               name: product.name,
+               price: product.price,
+               type1: product.category[0],
+               type2: product.category[1],
+               image1: product.image[0],
+               image2: product.image[1],
+               image3: product.image[2],
+             }}
+             >
+               <img src={product.image[0]} alt={product.name}/>
+               <div className="list-name">{product.name}</div>
+               <div className="list-price">P$ {product.price}</div>
+ 
+ 
+             </Link>
+             
+           </div>
+         )
+     })}
+      </div>
     </div>
   );
 }

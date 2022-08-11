@@ -1,7 +1,5 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
 import { Container } from "@mui/material";
-
 import ProductListing from "../components/productListing";
 
 function Product() {
@@ -10,7 +8,6 @@ function Product() {
   React.useEffect(() => {
     const getProducts = async () => {
       const response = await fetch("/api/products/getProducts");
-      //console.log(response);
       const newData = await response.json();
       setProductsData(newData);
     };

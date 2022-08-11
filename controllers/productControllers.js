@@ -12,15 +12,4 @@ router.get("/getProducts", async (req, res) => {
   }
 });
 
-// router.get("/:id", async (req, res) => {
-//   try {
-//     const productDetail = await Product.findById(req.params);
-
-//     res.send(productDetail);
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json();
-//   }
-// });
-
 module.exports = router;
