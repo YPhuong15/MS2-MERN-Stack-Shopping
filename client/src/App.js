@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Homepage from "./pages/Homepage";
 import Product from "./pages/Product";
+import ProductDetails from "./components/ProductDetail";
+import Cart from './pages/Cart'
+import './App.css'
 
 function App() {
   return (
@@ -10,6 +13,8 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/home" element={<Homepage />} />
           <Route path="/product" element={<Product />} />
+          <Route exact path="/product/:id" element={<ProductDetails/>}/>
+          <Route path='/cart' element={<Cart/>} />   
         </Routes>
       </BrowserRouter>
     </div>

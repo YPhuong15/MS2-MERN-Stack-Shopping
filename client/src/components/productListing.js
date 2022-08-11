@@ -2,6 +2,7 @@ import React from "react";
 import { Card, Container, Grid } from "@mui/material";
 import NavBar from "./NavBar";
 import { makeStyles } from "@mui/styles";
+import {Link} from "react-router-dom"
 
 const useStyle = makeStyles((theme) => ({
   ListProductMainContainer: {
@@ -69,18 +70,29 @@ function ProductListing(props) {
             return (
               <Grid item xs={6} md={4} key={index}>
                 <span className={classes.ProductLink}>
+                  <Link
+                  to={{pathname: `/product/${item._id}` }}
+                  state={{
+                    id: item._id,
+                    name: item.name,
+                    price: item.price,
+                    image1: item.image[0],
+                    image2: item.image[1],
+                    image3: item.image[2],
+                  }}
+                  >
                   <img
                     className={classes.ProductImage}
                     src={item.image[0]}
                     //   onClick={Navigate()}
                   />
-                  <div></div>
                   <div className={classes.ProductDetailColorway}>
                     <div className={classes.ProductName}>Name: {item.name}</div>
                     <div className={classes.ProductType}>
                       Price: {item.price.toLocaleString()}USD
                     </div>
                   </div>
+                </Link>
                 </span>
               </Grid>
             );

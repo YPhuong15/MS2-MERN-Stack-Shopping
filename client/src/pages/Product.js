@@ -15,8 +15,6 @@ function Product() {
     };
     getProducts();
   }, []);
-
-  //console.log(productsData);
   return (
     <div>
       <Container maxWidth="xl">
