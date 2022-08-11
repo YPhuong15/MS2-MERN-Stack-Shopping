@@ -1,10 +1,11 @@
 import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import Homepage from './pages/Homepage'
 import Product from './pages/Product'
-import ProductDetail from './pages/productDetail';
+import ProductDetail from './pages/DetailsPage';
 import NavBar from './components/NavBar'
 import AboutUs from './pages/AboutUs';
 import Footer from './components/Footer'
+import './App.css'
 
 function App() {
   return (

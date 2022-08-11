@@ -5,7 +5,7 @@ import Col from 'react-bootstrap/Col'
 export default function Footer() {
     return (
         <div className="fixed-bottom" style={{ paddingBottom: '0px'}}>
-            <Container fluid style={{backgroundColor: 'gray'}}>
+            <Container fluid style={{backgroundColor: 'white'}}>
                 <Row>
                     <Col xs={6} md={4}>
                         <a href='/about' style={{marginLeft: '200px'}}>About Us </a>
