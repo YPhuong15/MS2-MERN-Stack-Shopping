@@ -12,17 +12,17 @@ export default function Navigation() {
     <div>
       <Navbar bg="light" expand="lg">
         <Container fluid>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/home">
             <img alt="logo" src={Logo} style={{ width: "50%" }} />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
             <Nav className="flex-grow-1 justify-content-evenly">
-              <Nav.Link href="#Home">Home</Nav.Link>
+              <Nav.Link href="/home">Home</Nav.Link>
               <Nav.Link href="#AboutUs">About Us</Nav.Link>
               <NavDropdown title="Products" id="navbarScrollingDropdown">
-                <NavDropdown.Item href="#Product">Pokemon</NavDropdown.Item>
-                <NavDropdown.Item href="#Accessories">
+                <NavDropdown.Item href="/products">Pokemon</NavDropdown.Item>
+                <NavDropdown.Item href="/accessories">
                   Accessories
                 </NavDropdown.Item>
               </NavDropdown>
@@ -40,7 +40,7 @@ export default function Navigation() {
             </Form>
           </Navbar.Collapse>
           <Nav className="flex-grow-1 justify-content-evenly">
-            <Nav.Link href="#Cart">
+            <Nav.Link href="/cart">
               View Cart <BsCart3 />
             </Nav.Link>
           </Nav>
