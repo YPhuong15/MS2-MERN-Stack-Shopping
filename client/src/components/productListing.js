@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default function ProductList() {
-  const [products, setProducts] = useState([]);
-
-  // Fetch from database
-  useEffect(() => {
-    async function getProducts() {
-      const response = await fetch(`http://localhost:3001/product/`);
-      const products = await response.json();
-      setProducts(products);
-    }
-    getProducts();
-    return;
-  }, [products.length]);
-
-
-  // Display All Products
+function ProductListing(props) {
+  const productList = props.productsData;
+  console.log(productList); //can show the list of products
   return (
     <div className="container">
       <h1>Available Pokemon</h1>
       <div className="row poke-list">
-       {[...products]
+       {[...productList]
         .sort((a, b) => a.pokedex - b.pokedex)
         .map((product) => {
          return(
@@ -52,4 +39,5 @@ export default function ProductList() {
       </div>
     </div>
   );
- }
+}
+export default ProductListing;

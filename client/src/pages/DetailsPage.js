@@ -1,13 +1,13 @@
 import Container from 'react-bootstrap/Container'
-import NavBar from '../components/navbar'
-import ProductDetails from '../components/productDetails'
+import NavBar from '../components/NavBar'
+import ProductDetail from '../components/ProductDetail'
 
-function DetailsPage() {
+function ProductDetails() {
     return (
         <div>
             <NavBar />
             <Container>
-                <ProductDetails />
+                <ProductDetail />
             </Container>
         </div>
 
@@ -18,4 +18,4 @@ function DetailsPage() {
     )
 }
 
-export default DetailsPage;
+export default ProductDetails;

@@ -1,7 +1,8 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import Button from 'react-bootstrap/Button';
 
-const ProductDetails = () => {
+const ProductDetail = () => {
   const location = useLocation();
 
   return (
@@ -19,7 +20,7 @@ const ProductDetails = () => {
           }} />
           <h2>{location.state.type1}  &emsp; {location.state.type2}</h2>
           <h3>P${location.state.price}</h3>
-          <button>Add to Cart</button>
+          <Button variant="warning">Add to cart</Button>
 
         </div>
         <div className="col">
@@ -51,4 +52,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductDetail;
