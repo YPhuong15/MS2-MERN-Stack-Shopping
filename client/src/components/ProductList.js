@@ -27,7 +27,7 @@ export default function ProductList() {
           return (
             <div className="col-sm-2 product-card" key={product._id}>
               <Link
-                to={{ pathname: `/product/${product.name}` }}
+                to={{ pathname: `/product/${product._id}` }}
                 state={{
                   id: product._id,
                   name: product.name,
