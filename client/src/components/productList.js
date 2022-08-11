@@ -40,11 +40,12 @@ export default function ProductList() {
              }}
              >
                <img src={product.image[0]} alt={product.name}/>
-               <div class="list-name">{product.name}</div>
-               <div class="list-price">P$ {product.price}</div>
+               <div className="list-name">{product.name}</div>
+               <div className="list-price">P$ {product.price}</div>
  
  
              </Link>
+             
            </div>
          )
      })}

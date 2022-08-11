@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import ThankYou from "./ThankYouPopup";
+import "bootstrap/dist/css/bootstrap.min.css"
+
 
 export default function ShoppingCart() {
     const [products, setProducts] = useState([]);
@@ -20,13 +23,12 @@ export default function ShoppingCart() {
     return (
       <div className="container">
         <h1>Shopping Cart</h1>
-        <div className="row poke-list">
+        <div className="row">
          {[...products]
-          .sort((a, b) => a.pokedex - b.pokedex)
           .map((product) => {
            return(
-             <div className="col-sm-2 product-card" key = {product._id}>
-               <Link
+             <div className="cart-card d-flex" key = {product._id}>
+               <Link className="d-flex"
                to={{pathname: `/product/${product._id}` }}
                state={{
                  id: product._id,
@@ -37,16 +39,32 @@ export default function ShoppingCart() {
                  image3: product.image[2],
                }}
                >
+                <div className="cart-image">
                  <img src={product.image[0]} alt={product.name}/>
-                 <div class="list-name">{product.name}</div>
-                 <div class="list-price">P$ {product.price}</div>
-   
-   
+                </div> 
+                 <div className="cart-name">{product.name}</div>
                </Link>
+               <div className="col cart-price">P$ {product.price}</div>
              </div>
            )
        })}
+          <hr style={{
+            background: '#FFFFFF',
+            color: '#000000',
+            opacity: '100%',
+            height: '2px',
+            margin: '20px 0px 10px 0px'
+          }} />
         </div>
+        <div className="row">
+            <div className="cart-total">
+            TOTAL AMOUNT
+            </div>
+        </div>
+        <div className="row">
+            <ThankYou/>
+        </div>
+        
       </div>
     );
    }

@@ -32,6 +32,7 @@ const ProductDetails = () => {
               </div>
             </div>
             <div className="col">
+              <div style={{textAlign: 'center', fontWeight: '500', fontSize: '20px', color: 'white', textShadow: '1px 1px black'}}>Add an Accessory!</div>
               <div className="accessory-images d-flex">
                 <div className="accessory-image">
                   <img width="125" src={location.state.image2} alt={location.state.name} />
