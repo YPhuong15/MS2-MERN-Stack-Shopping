@@ -1,7 +1,5 @@
 import React from "react";
-import { makeStyles } from "@mui/styles";
 import { Container } from "@mui/material";
-import NavBar from "../components/NavBar";
 import ProductListing from "../components/productListing";
 
 function Product() {
@@ -19,7 +17,6 @@ function Product() {
   //console.log(productsData);
   return (
     <div>
-      <NavBar />
       <Container maxWidth="xl">
         <ProductListing productsData={productsData} />
       </Container>

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ProductListing(props) {
   const productList = props.productsData;
-  console.log(productList); //can show the list of products
+  console.log(productList);
   return (
     <div className="container">
       <h1>Available Pokemon</h1>

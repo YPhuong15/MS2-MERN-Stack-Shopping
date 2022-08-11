@@ -17,13 +17,13 @@ export default class Carousel extends Component {
             options={{
               autoPlay: 4000,
               pauseAutoPlayOnHover: true,
-              wrapAround: true,
-              fullscreen: true,
+              groupCells: true,
+              fullscreen: false,
               adaptiveHeight: true,
             }}
           >
             {images.map((image, index) => (
-              <div style={{ width: '80%', height: '400px', margin: '0 0.5em' }} key={index}>
+              <div style={{ width: '80%', height: '250px', margin: '0 0.5em' }} key={index}>
                 <img src={image} alt="" />
               </div>
             ))}
