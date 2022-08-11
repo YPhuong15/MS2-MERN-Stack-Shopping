@@ -6,8 +6,16 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import Logo from "../resources/logopoke.png";
 import { BsCart3 } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import {useState} from 'react';
 
 export default function Navigation() {
+  const [search, setSearch] = useState('');
+
+  const handleChange = event => {
+    setSearch(event.target.value);
+  }
+
   return (
     <div>
       <Navbar bg="light" expand="lg">
@@ -33,10 +41,14 @@ export default function Navigation() {
                 placeholder="Search"
                 className="me-2"
                 aria-label="Search"
+                onChange={handleChange}
               />
-              <Button size="sm" variant="outline-primary">
-                Search
-              </Button>
+              <Link to={{pathname: `/search/` }}
+              state={{searchTerm: search}}>
+                <Button size="sm" variant="outline-primary">
+                  Search
+                </Button>
+              </Link>
             </Form>
           </Navbar.Collapse>
           <Nav className="flex-grow-1 justify-content-evenly">

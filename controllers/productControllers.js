@@ -25,5 +25,10 @@ router.get('/getCart', async (req, res) => {
     }
 })
 
+router.post('/search', async (req, res) => {
+    const search = await Product.find(req)
+    console.log(`Getting search ${req}`)
+    res.send(search)
+})
 
 module.exports = router

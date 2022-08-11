@@ -17,6 +17,7 @@ function Product() {
   }, []);
   return (
     <div>
+      <NavBar />
       <Container maxWidth="xl">
         <ProductListing productsData={productsData} />
       </Container>

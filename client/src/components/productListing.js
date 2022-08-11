@@ -54,11 +54,9 @@ const useStyle = makeStyles((theme) => ({
 function ProductListing(props) {
   const productList = props.productsData;
   const classes = useStyle();
-  console.log(productList); //can show the list of products
+  //console.log(productList); //can show the list of products
   return (
     <div>
-      <NavBar />
-
       <Container maxWidth="xl">
         <h1>Products</h1>
         <Grid
