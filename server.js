@@ -37,5 +37,4 @@ connectionDB.on(`error`, () => {
 // ROUTES
 app.use("/api/products/", productRoute);
 
-app.get("/", (req, res) => res.send("Hello World"));
 app.listen(PORT, () => console.log(`App running on ${PORT}`));
