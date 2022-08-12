@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/esm/Button";
 import { useLocation } from "react-router-dom";
 
 const ProductDetails = () => {
@@ -19,7 +20,9 @@ const ProductDetails = () => {
           }} />
           <h2>{location.state.type1}  &emsp; {location.state.type2}</h2>
           <h3>P${location.state.price}</h3>
-          <button>Add to Cart</button>
+          <Button variant="warning" style={{margin: '10px 0px 0px 0px'}}>
+        Buy Now
+      </Button>
 
         </div>
         <div className="col">
